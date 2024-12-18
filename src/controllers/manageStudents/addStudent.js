@@ -42,6 +42,7 @@ router.post("/", (req, res) => {
     res.json(RESPONSE.SUCCESS);
   } catch (error) {
     console.log("Error!");
+    res.json(RESPONSE.ERROR);
   }
 });
 
