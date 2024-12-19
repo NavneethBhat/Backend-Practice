@@ -4,7 +4,7 @@ import studentModel from "../../models/studentModel.js";
 import RESPONSE from "../../config/Global.js";
 import { send, setErrorsRes } from "../../helper/responseHelper.js";
 
-router.post("/", (req, res) => {
+router.post("/", async (req, res) => {
   try {
     const { name, rollno, email } = req.body;
 
@@ -37,18 +37,27 @@ router.post("/", (req, res) => {
       return send(res, setErrorsRes(RESPONSE.REQUIRED, "email"));
     }
 
-    console.log({ name, rollno, email });
-
-    studentModel.create({
-      name: name,
+    let isExist = await studentModel.find({
       rollno: rollno,
-      email: email,
     });
 
+    if (isExist.length > 0) {
+      return send(res, setErrorsRes(RESPONSE.ALREADY_EXISTS, "rollno"));
+    }
+
+    // console.log({ name, rollno, email });
+    // studentModel.create({
+    //   name: name,
+    //   rollno: rollno,
+    //   email: email,
+    // });
+
     res.json(RESPONSE.SUCCESS);
+    return send(res, RESPONSE.SUCCESS);
   } catch (error) {
-    console.log("Error!");
-    res.json(RESPONSE.ERROR);
+    console.log(error);
+    // res.json(RESPONSE.ERROR);
+    return send(res, RESPONSE.ERROR);
   }
 });
 

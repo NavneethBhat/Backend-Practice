@@ -8,8 +8,12 @@ const RESPONSE = {
     message: "Error",
   },
   REQUIRED: {
-    code: 500,
-    message: " is Required",
+    code: 201,
+    message: "is Required",
+  },
+  ALREADY_EXISTS: {
+    code: 202,
+    message: "already exists",
   },
 };
 
