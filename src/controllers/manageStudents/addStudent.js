@@ -37,9 +37,17 @@ router.post("/", async (req, res) => {
       return send(res, setErrorsRes(RESPONSE.REQUIRED, "email"));
     }
 
-    let isExist = await studentModel.find({
-      rollno: rollno,
-    });
+    let isExist = await studentModel.aggregate([
+      {
+        $match: {
+          rollno: rollno,
+        },
+      },
+    ]);
+
+    // let isExist = await studentModel.find({
+    //   rollno: rollno,
+    // });
 
     if (isExist.length > 0) {
       return send(res, setErrorsRes(RESPONSE.ALREADY_EXISTS, "rollno"));
