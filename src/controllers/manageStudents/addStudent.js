@@ -82,20 +82,4 @@ router.post("/", async (req, res) => {
 
 export default router;
 
-//     console.log({ name, rollno, email });
-//     studentModel.create({
-//       name: name,
-//       rollno: rollno,
-//       email: email,
-//     });
-
-//     res.json(RESPONSE.SUCCESS);
-//     return send(res, RESPONSE.SUCCESS);
-//   } catch (error) {
-//     console.log(error);
-//     // res.json(RESPONSE.ERROR);
-//     return send(res, RESPONSE.ERROR);
-//   }
-// });
-
 // export default router;
