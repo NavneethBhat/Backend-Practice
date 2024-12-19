@@ -84,14 +84,6 @@ export default router;
 
 // import { response, Router } from "express";
 // const router = Router();
-// import studentModel from "../../models/studentModel.js";
-// import RESPONSE from "../../config/Global.js";
-// import { send, setErrorsRes } from "../../helper/responseHelper.js";
-// import { STATE } from "../../config/Constants.js";
-// import validator from "validator";
-
-//       return send(res, setErrorsRes(RESPONSE.REQUIRED, "rollno"));
-//     }
 
 //     if (!email || email == undefined) {
 //       // const response = RESPONSE.REQUIRED;
