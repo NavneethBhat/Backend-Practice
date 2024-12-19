@@ -15,6 +15,10 @@ const RESPONSE = {
     code: 202,
     message: "already exists",
   },
+  INVALIDID: {
+    code: 203,
+    message: "is invalid",
+  },
 };
 
 export default RESPONSE;

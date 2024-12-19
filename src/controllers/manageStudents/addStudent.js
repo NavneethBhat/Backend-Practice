@@ -3,6 +3,8 @@ const router = Router();
 import studentModel from "../../models/studentModel.js";
 import RESPONSE from "../../config/Global.js";
 import { send, setErrorsRes } from "../../helper/responseHelper.js";
+import { STATE } from "../../config/Constants.js";
+// import { validator } from "../../helper/validator.js";
 
 router.post("/", async (req, res) => {
   try {
@@ -41,6 +43,7 @@ router.post("/", async (req, res) => {
       {
         $match: {
           rollno: rollno,
+          isactive: STATE.ACTIVE,
         },
       },
     ]);
@@ -52,6 +55,9 @@ router.post("/", async (req, res) => {
     if (isExist.length > 0) {
       return send(res, setErrorsRes(RESPONSE.ALREADY_EXISTS, "rollno"));
     }
+
+    // let isEmail = validator.isEmail(email);
+    // console.log(isEmail);
 
     // console.log({ name, rollno, email });
     // studentModel.create({
