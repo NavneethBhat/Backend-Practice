@@ -82,19 +82,6 @@ router.post("/", async (req, res) => {
 
 export default router;
 
-// import { response, Router } from "express";
-// const router = Router();
-
-//     if (!email || email == undefined) {
-//       // const response = RESPONSE.REQUIRED;
-//       // return res.json({
-//       //   code: response.code,
-//       //   message: "email" + response.message,
-//       // });
-
-//       return send(res, setErrorsRes(RESPONSE.REQUIRED, "email"));
-//     }
-
 //     let isExist = await studentModel.aggregate([
 //       {
 //         $match: {
