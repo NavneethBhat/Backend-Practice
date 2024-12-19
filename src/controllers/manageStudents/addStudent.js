@@ -90,13 +90,6 @@ export default router;
 // import { STATE } from "../../config/Constants.js";
 // import validator from "validator";
 
-//     if (!rollno || rollno == undefined) {
-//       // const response = RESPONSE.REQUIRED;
-//       // return res.json({
-//       //   code: response.code,
-//       //   message: "rollno" + response.message,
-//       // });
-
 //       return send(res, setErrorsRes(RESPONSE.REQUIRED, "rollno"));
 //     }
 
