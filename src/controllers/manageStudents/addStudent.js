@@ -82,18 +82,6 @@ router.post("/", async (req, res) => {
 
 export default router;
 
-//     if (isExist.length > 0) {
-//       return send(res, setErrorsRes(RESPONSE.ALREADY_EXISTS, "rollno"));
-//     }
-
-//     let isEmail = validator.isEmail(email);
-//     if (!isEmail) {
-//       return send(res, setErrorsRes(RESPONSE.INVALIDID, "email"));
-//     }
-
-//     // let isEmail = validator.isEmail(email);
-//     // console.log(isEmail);
-
 //     console.log({ name, rollno, email });
 //     studentModel.create({
 //       name: name,
