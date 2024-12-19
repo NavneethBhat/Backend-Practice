@@ -90,12 +90,6 @@ export default router;
 // import { STATE } from "../../config/Constants.js";
 // import validator from "validator";
 
-// router.post("/", async (req, res) => {
-//   try {
-//     const { name, rollno, email } = req.body;
-
-//     }
-
 //     if (!rollno || rollno == undefined) {
 //       // const response = RESPONSE.REQUIRED;
 //       // return res.json({
