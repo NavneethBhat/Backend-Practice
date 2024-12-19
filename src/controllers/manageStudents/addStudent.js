@@ -94,13 +94,6 @@ export default router;
 //   try {
 //     const { name, rollno, email } = req.body;
 
-//     if (!name || name == undefined) {
-//       // const response = RESPONSE.REQUIRED;
-//       // return res.json({
-//       //   code: response.code,
-//       //   message: "name" + response.message,
-//       // });
-//       return send(res, setErrorsRes(RESPONSE.REQUIRED, "name"));
 //     }
 
 //     if (!rollno || rollno == undefined) {
