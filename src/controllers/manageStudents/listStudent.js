@@ -14,6 +14,13 @@ router.get("/", async (req, res) => {
           isactive: STATE.ACTIVE,
         },
       },
+
+      {
+        $project: {
+          isactive: 0,
+          __v: 0,
+        },
+      },
     ]);
 
     return send(res, RESPONSE.SUCCESS, studentData);
