@@ -1,4 +1,4 @@
-import { response, Router } from "express";
+import { query, response, Router } from "express";
 const router = Router();
 import studentModel from "../../models/studentModel.js";
 import RESPONSE from "../../config/Global.js";
@@ -8,19 +8,22 @@ import validator from "validator";
 
 router.get("/", async (req, res) => {
   try {
-    let student_id = req.query.student_id;
+    let rollno = req.query.rollno;
+    let query = {};
+    query.isactive = STATE.ACTIVE;
+    rollno != undefined ? query.rollno - rollno : "";
 
     let studentData = await studentModel.aggregate([
       {
-        $match: {
-          _id: student_id,
-          isactive: STATE.ACTIVE,
-        },
+        $match:
+          //   rollno: rollno,
+          //   isactive: STATE.ACTIVE,
+          query,
       },
 
       {
         $project: {
-          isactive: 0,
+          //   isactive: 0,
           __v: 0,
         },
       },
