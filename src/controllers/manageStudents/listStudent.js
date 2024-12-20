@@ -8,9 +8,12 @@ import validator from "validator";
 
 router.get("/", async (req, res) => {
   try {
+    let student_id = req.query.student_id;
+
     let studentData = await studentModel.aggregate([
       {
         $match: {
+          _id: student_id,
           isactive: STATE.ACTIVE,
         },
       },
