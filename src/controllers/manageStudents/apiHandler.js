@@ -5,5 +5,6 @@ import listStudent from "./listStudent.js";
 
 router.use("/add", addStudent);
 router.use("/list", listStudent);
+router.use("/delete", deleteStudent);
 
 export default router;
