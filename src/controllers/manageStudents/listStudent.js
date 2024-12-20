@@ -23,6 +23,10 @@ router.get("/", async (req, res) => {
       },
     ]);
 
+    if (studentData.length === 0) {
+      return send(res, setErrorsRes(RESPONSE.NOTFOUND, "Student Data "));
+    }
+
     return send(res, RESPONSE.SUCCESS, studentData);
   } catch (error) {
     console.log(error);

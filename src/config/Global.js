@@ -19,6 +19,10 @@ const RESPONSE = {
     code: 203,
     message: "is invalid",
   },
+  NOTFOUND: {
+    code: 204,
+    message: "not found",
+  },
 };
 
 export default RESPONSE;
