@@ -6,9 +6,17 @@ import { send, setErrorsRes } from "../../helper/responseHelper.js";
 import { STATE } from "../../config/Constants.js";
 import validator from "validator";
 
-router.post("/", async (req, res) => {
+router.get("/", async (req, res) => {
   try {
-    return send(res, RESPONSE.SUCCESS);
+    let studentData = await studentModel.aggregate([
+      {
+        $match: {
+          isactive: STATE.ACTIVE,
+        },
+      },
+    ]);
+
+    return send(res, RESPONSE.SUCCESS, studentData);
   } catch (error) {
     console.log(error);
     return send(res, RESPONSE.ERROR);
