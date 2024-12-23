@@ -12,7 +12,7 @@ router.get("/", async (req, res) => {
     let rollno = req.query.rollno;
     let query = {};
     query.isactive = STATE.ACTIVE;
-    rollno != undefined ? query.rollno - rollno : "";
+    rollno != undefined ? (query.rollno = rollno) : "";
 
     let studentData = await studentModel.aggregate([
       {
