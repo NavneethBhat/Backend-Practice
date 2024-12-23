@@ -8,6 +8,7 @@ import validator from "validator";
 
 router.get("/", async (req, res) => {
   try {
+    let student_id = req.query.id;
     let rollno = req.query.rollno;
     let query = {};
     query.isactive = STATE.ACTIVE;
@@ -20,7 +21,9 @@ router.get("/", async (req, res) => {
           //   isactive: STATE.ACTIVE,
           query,
       },
-
+      {
+        $match: { $expr: { $eq: ["$_id", { $toObjectId: student_id }] } },
+      },
       {
         $project: {
           //   isactive: 0,
