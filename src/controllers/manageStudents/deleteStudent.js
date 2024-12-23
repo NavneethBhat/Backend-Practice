@@ -14,6 +14,9 @@ router.delete("/", async (req, res) => {
         $match: { $expr: { $eq: ["$_id", { $toObjectId: student_id }] } },
       },
     ]);
+    if (studentData.length === 0) {
+      return send(res, setErrorsRes(RESPONSE.NOTFOUND, "Student Data"));
+    }
     console.log(studentData);
     return send(res, RESPONSE.SUCCESS);
   } catch (error) {
