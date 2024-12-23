@@ -17,8 +17,8 @@ router.get("/", async (req, res) => {
     let studentData = await studentModel.aggregate([
       {
         $match:
-          //   rollno: rollno,
-          //   isactive: STATE.ACTIVE,
+          // rollno: rollno,
+          // isactive: STATE.ACTIVE,
           query,
       },
       {

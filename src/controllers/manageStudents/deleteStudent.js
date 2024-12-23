@@ -11,10 +11,10 @@ router.delete("/", async (req, res) => {
     let student_id = req.query.student_id;
     let studentData = await studentModel.aggregate([
       {
-        _id: { $expr: [{ $toObjectId: student_id }] },
+        $match: { $expr: { $eq: ["$_id", { $toObjectId: student_id }] } },
       },
     ]);
-
+    console.log(studentData);
     return send(res, RESPONSE.SUCCESS);
   } catch (error) {
     console.log(error);
