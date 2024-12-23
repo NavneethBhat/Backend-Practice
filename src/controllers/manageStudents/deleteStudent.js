@@ -21,6 +21,17 @@ router.delete("/", async (req, res) => {
       return send(res, setErrorsRes(RESPONSE.NOTFOUND, "Student Data"));
     }
     console.log(studentData);
+
+    await studentModel.findByIdAndUpdate(
+      {
+        _id: student_id,
+        isactive: STATE.ACTIVE,
+      },
+      {
+        isactive: STATE.INACTIVE,
+      }
+    );
+
     return send(res, RESPONSE.SUCCESS);
   } catch (error) {
     console.log(error);
