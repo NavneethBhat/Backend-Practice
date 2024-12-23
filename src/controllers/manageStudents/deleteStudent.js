@@ -11,7 +11,10 @@ router.delete("/", async (req, res) => {
     let student_id = req.query.student_id;
     let studentData = await studentModel.aggregate([
       {
-        $match: { $expr: { $eq: ["$_id", { $toObjectId: student_id }] } },
+        $match: {
+          $expr: { $eq: ["$_id", { $toObjectId: student_id }] },
+          isactive: STATE.ACTIVE,
+        },
       },
     ]);
     if (studentData.length === 0) {
