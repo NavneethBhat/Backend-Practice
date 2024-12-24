@@ -33,6 +33,17 @@ router.put("/", async (req, res) => {
     }
 
     if (rollno && rollno != undefined) {
+      let isExist = await studentModel.aggregate([
+        {
+          $match: {
+            rollno: rollno,
+            isactive: STATE.ACTIVE,
+          },
+        },
+      ]);
+      if (isExist.length > 0) {
+        return send(res, setErrorsRes(RESPONSE.ALREADY_EXISTS, "rollno"));
+      }
       updates.rollno = rollno;
     }
 
