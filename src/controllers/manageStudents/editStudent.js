@@ -48,6 +48,10 @@ router.put("/", async (req, res) => {
     }
 
     if (email && email != undefined) {
+      let isEmail = validator.isEmail(email);
+      if (!isEmail) {
+        return send(res, setErrorsRes(RESPONSE.INVALIDID, "email"));
+      }
       updates.email = email;
     }
 
