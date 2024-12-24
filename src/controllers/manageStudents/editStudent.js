@@ -55,6 +55,10 @@ router.put("/", async (req, res) => {
       updates.email = email;
     }
 
+    console.log(updates);
+
+    await studentModel.updateMany({ _id: student_id }, { $set: updates });
+
     // await studentModel.findByIdAndUpdate(
     //   {
     //     _id: student_id,

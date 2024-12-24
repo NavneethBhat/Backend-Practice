@@ -13,7 +13,7 @@ router.get("/", async (req, res) => {
     let query = {};
     query.isactive = STATE.ACTIVE;
     rollno != undefined ? (query.rollno = rollno) : "";
-
+    console.log(query);
     let studentData = await studentModel.aggregate([
       {
         $match:
@@ -21,9 +21,9 @@ router.get("/", async (req, res) => {
           // isactive: STATE.ACTIVE,
           query,
       },
-      {
-        $match: { $expr: { $eq: ["$_id", { $toObjectId: student_id }] } },
-      },
+      // {
+      //   $match: { $expr: { $eq: ["$_id", { $toObjectId: student_id }] } },
+      // },
       {
         $project: {
           //   isactive: 0,
