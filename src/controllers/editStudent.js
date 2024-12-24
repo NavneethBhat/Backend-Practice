@@ -26,17 +26,29 @@ router.put("/", async (req, res) => {
     if (studentData.length === 0) {
       return send(res, setErrorsRes(RESPONSE.NOTFOUND, "Student Data"));
     }
-    console.log(studentData);
+    // console.log(studentData);
 
-    await studentModel.findByIdAndUpdate(
-      {
-        _id: student_id,
-        isactive: STATE.ACTIVE,
-      },
-      {
-        isactive: STATE.INACTIVE,
-      }
-    );
+    if (name && name != undefined) {
+      updates.name = name;
+    }
+
+    if (rollno && rollno != undefined) {
+      updates.rollno = rollno;
+    }
+
+    if (email && email != undefined) {
+      updates.email = email;
+    }
+
+    // await studentModel.findByIdAndUpdate(
+    //   {
+    //     _id: student_id,
+    //     isactive: STATE.ACTIVE,
+    //   },
+    //   {
+    //     isactive: STATE.INACTIVE,
+    //   }
+    // );
 
     return send(res, RESPONSE.SUCCESS);
   } catch (error) {
